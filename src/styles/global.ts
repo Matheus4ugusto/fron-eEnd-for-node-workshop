@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   body{
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    background-color: ${({theme}) => theme.colors.blue.deep};
   }
 
   button{
@@ -21,4 +22,4 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export default GlobalStyles
+export default GlobalStyles;
