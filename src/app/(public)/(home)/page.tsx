@@ -1,11 +1,15 @@
 "use client"
 
-import Header from "@/components/Header";
 
-export default function Home(){
-    return(
+import PostBox from "@/components/PostBox";
+
+export default function Home() {
+    return (
         <>
-
+            <PostBox/>
+            <PostBox/>
+            <PostBox/>
+            <PostBox/>
         </>
 
     )
