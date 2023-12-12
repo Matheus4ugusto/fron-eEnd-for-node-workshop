@@ -18,6 +18,15 @@ export const Header = styled.header`
     padding-right: ${({theme}) => theme.typography["xs"]};
   }
   position: relative;
+  @media(max-width: 320px){
+    button{
+      font-size: ${({theme}) => theme.typography["xl"]};
+    }
+    #more-button{
+      margin-right: 0;
+      padding-right: ${({theme}) => theme.typography["xs"]};
+    }
+  }
 `;
 
 export const Button = styled.button`
@@ -52,7 +61,11 @@ export const Section = styled.section`
   right: ${({theme}) => theme.typography["4xl"]};
   box-shadow: 0 10px 100px 25px #28283d;
   border-radius: 4px;
-  #sing-up-button{
+  #sign-up-button{
     border-bottom: .2px solid ${({theme}) => theme.colors.blue.deep};
+  }
+  @media(max-width: 320px){
+    bottom: -5.3rem;
+    right: ${({theme}) => theme.typography["xs"]};
   }
 `
