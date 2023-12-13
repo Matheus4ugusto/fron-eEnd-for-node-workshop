@@ -67,6 +67,7 @@ export const Section = styled.section`
 
   #sign-up-button {
     border-bottom: .2px solid ${({theme}) => theme.colors.blue.deep};
+    color: ${({theme}) => theme.colors.black.pure};
   }
 
   @media (max-width: 320px) {
