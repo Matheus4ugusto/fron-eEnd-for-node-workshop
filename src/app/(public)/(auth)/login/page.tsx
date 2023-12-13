@@ -33,6 +33,8 @@ export default function LoginPage() {
                         id="email"
                         {...register("email")}
                         errors={errors.email}
+                        aria-label="Input de email"
+                        name="Input de email"
                     />
                     <Input
                         label="Senha:"
@@ -40,10 +42,12 @@ export default function LoginPage() {
                         type="password"
                         {...register("password")}
                         errors={errors.password}
+                        aria-label="Input de senha"
+                        name="Input de senha"
                     />
 
-                    <Button type="submit" disabled={isSubmitting}>
-                        Cadastrar
+                    <Button type="submit" disabled={isSubmitting} aria-label="Entrar" name="Entrar">
+                        Entrar
                     </Button>
                 </form>
             </CardLogin>
