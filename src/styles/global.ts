@@ -1,4 +1,5 @@
-import {createGlobalStyle} from "styled-components";
+import { colors } from "./theme/colors";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   *{
@@ -7,12 +8,13 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
     box-sizing: border-box;
     text-decoration: none;
+    color: ${({ theme }) => theme.colors.white.pure}
   }
 
   body{
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background-color: ${({theme}) => theme.colors.blue.deep};
+    background-color: ${({ theme }) => theme.colors.blue.deep};
   }
 
   button{
@@ -20,6 +22,6 @@ const GlobalStyles = createGlobalStyle`
     background-color: transparent;
     border: none;
   }
-`
+`;
 
 export default GlobalStyles;
