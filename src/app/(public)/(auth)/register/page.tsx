@@ -14,7 +14,7 @@ const schema = yup.object().shape({
   password: yup.string().required("Senha é obrigatória"),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Senhas não conferem")
+    .oneOf([yup.ref("password"), undefined], "Senhas não conferem")
     .required("Confirmação de senha é obrigatória"),
 });
 
