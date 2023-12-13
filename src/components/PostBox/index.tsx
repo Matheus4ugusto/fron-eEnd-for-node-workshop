@@ -5,51 +5,27 @@ import {FaThumbsDown, FaThumbsUp} from "react-icons/fa";
 //TODO tornar o nome de usuário um botão que redireciona ao perfil do usuário
 
 export interface PostBoxProps {
-    authorName: string,
-    postText: string
+    authorName?: string,
+    postText?: string,
+    postTitle?: string,
 }
 
-const PostBox: React.FC = () => {
+const PostBox: React.FC<PostBoxProps> = ({authorName, postText, postTitle}) => {
     return (
         <Styled.Section>
             <Styled.UserNameBox>
                 <Styled.UserName>
-                    Nome de usuário
+                    {authorName}
                 </Styled.UserName>
             </Styled.UserNameBox>
             <Styled.TitleBox>
                 <Styled.Title>
-                    Título
+                    {postTitle}
                 </Styled.Title>
             </Styled.TitleBox>
             <Styled.TextBox>
                 <Styled.Text>
-                    Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Consequat id porta nibh venenatis cras sed
-                    felis eget velit. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Et tortor consequat id
-                    porta nibh. Ut etiam sit amet nisl purus. Leo vel fringilla est ullamcorper. Donec adipiscing
-                    tristique risus nec feugiat in fermentum posuere. Vel facilisis volutpat est velit egestas dui id.
-                    Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Fusce ut placerat orci
-                    nulla pellentesque dignissim enim sit amet. Nibh tellus molestie nunc non blandit. Nisi lacus sed
-                    viverra tellus in hac habitasse platea dictumst.Id eu nisl nunc mi ipsum faucibus vitae aliquet nec.
-                    Consequat id porta nibh venenatis cras sed felis eget velit. Bibendum at varius vel pharetra vel
-                    turpis nunc eget lorem. Et tortor consequat id porta nibh. Ut etiam sit amet nisl purus. Leo vel
-                    fringilla est ullamcorper. Donec adipiscing tristique risus nec feugiat in fermentum posuere. Vel
-                    facilisis volutpat est velit egestas dui id. Quis imperdiet massa tincidunt nunc pulvinar sapien et
-                    ligula ullamcorper. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Nibh tellus
-                    molestie nunc non blandit. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Id eu
-                    nisl nunc mi ipsum faucibus vitae aliquet nec. Consequat id porta nibh venenatis cras sed
-                    felis eget velit. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Et tortor consequat id
-                    porta nibh. Ut etiam sit amet nisl purus. Leo vel fringilla est ullamcorper. Donec adipiscing
-                    tristique risus nec feugiat in fermentum posuere. Vel facilisis volutpat est velit egestas dui id.
-                    Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Fusce ut placerat orci
-                    nulla pellentesque dignissim enim sit amet. Nibh tellus molestie nunc non blandit. Nisi lacus sed
-                    viverra tellus in hac habitasse platea dictumst.Id eu nisl nunc mi ipsum faucibus vitae aliquet nec.
-                    Consequat id porta nibh venenatis cras sed felis eget velit. Bibendum at varius vel pharetra vel
-                    turpis nunc eget lorem. Et tortor consequat id porta nibh. Ut etiam sit amet nisl purus. Leo vel
-                    fringilla est ullamcorper. Donec adipiscing tristique risus nec feugiat in fermentum posuere. Vel
-                    facilisis volutpat est velit egestas dui id. Quis imperdiet massa tincidunt nunc pulvinar sapien et
-                    ligula ullamcorper. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Nibh tellus
-                    molestie nunc non blandit. Nisi lacus sed viverra tellus in hac habitasse platea dictumst.
+                    {postText}
                 </Styled.Text>
             </Styled.TextBox>
             <Styled.ActionsBox>

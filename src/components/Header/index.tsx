@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import * as Styled from "./header.style";
-import { FaNewspaper, FaRegUserCircle } from "react-icons/fa";
-import { IoIosMore } from "react-icons/io";
-import { BiHelpCircle } from "react-icons/bi";
+import {FaNewspaper, FaRegUserCircle} from "react-icons/fa";
+import {IoIosMore} from "react-icons/io";
+import {BiHelpCircle} from "react-icons/bi";
+import {redirect} from "next/navigation";
 
 const Header: React.FC = () => {
 
@@ -10,7 +11,7 @@ const Header: React.FC = () => {
     return (
         <Styled.Header>
             <Styled.Button name="O Blog" aria-label="O Blog">
-                <FaNewspaper />
+                <FaNewspaper/>
                 O Blog
             </Styled.Button>
             <Styled.Div>
@@ -23,17 +24,17 @@ const Header: React.FC = () => {
                     name="More button"
                     aria-label="More Button"
                 >
-                    <IoIosMore />
+                    <IoIosMore/>
                 </Styled.Button>
             </Styled.Div>
             {popUp && (
                 <Styled.Section>
                     <Styled.PopUpButton id="sign-up-button" name="Cadastre-se" aria-label="Cadastre-se">
-                        <FaRegUserCircle />
+                        <FaRegUserCircle/>
                         Cadastre-se
                     </Styled.PopUpButton>
                     <Styled.PopUpButton name="Precisa de ajuda?" aria-label="Precisa de ajuda?">
-                        <BiHelpCircle />
+                        <BiHelpCircle/>
                         Precisa de ajuda?
                     </Styled.PopUpButton>
                 </Styled.Section>
