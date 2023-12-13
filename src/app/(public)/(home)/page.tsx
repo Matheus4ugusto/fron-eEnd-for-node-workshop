@@ -6,7 +6,7 @@ import {getUserName} from "@/services/user.service";
 import {useEffect, useState} from "react";
 
 export default function Home() {
-    const [postText, setPostText] = useState()
+    /* const [postText, setPostText] = useState()
     const [postTitle, setPostTitle] = useState()
     const [userName, setUserName] = useState()
     useEffect(() => {
@@ -25,13 +25,13 @@ export default function Home() {
         };
 
         fetchData();
-    }, []);
+    }, []); */
 
     return (
         <>
-            <PostBox postText={postText} postTitle={postTitle} authorName={userName}/>
-            <PostBox postText={postText} postTitle={postTitle} authorName={userName}/>
-            <PostBox postText={postText} postTitle={postTitle} authorName={userName}/>
+            <PostBox/>
+            <PostBox/>
+            <PostBox/>
         </>
 
     )

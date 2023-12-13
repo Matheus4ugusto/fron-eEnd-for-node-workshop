@@ -1,6 +1,8 @@
 import * as Styled from "./postBox.style"
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {FaThumbsDown, FaThumbsUp} from "react-icons/fa";
+import {getPostText, getPostTitle} from "@/services/post.service";
+import {getUserName} from "@/services/user.service";
 
 //TODO tornar o nome de usuário um botão que redireciona ao perfil do usuário
 
@@ -10,12 +12,32 @@ export interface PostBoxProps {
     postTitle?: string,
 }
 
-const PostBox: React.FC<PostBoxProps> = ({authorName, postText, postTitle}) => {
+const PostBox: React.FC<PostBoxProps> = () => {
+    const [postText, setPostText] = useState()
+    const [postTitle, setPostTitle] = useState()
+    const [userName, setUserName] = useState()
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const postTextResponse = await getPostText();
+                const postTitleResponse = await getPostTitle();
+                const userNameResponse = await getUserName();
+
+                setPostText(postTextResponse);
+                setPostTitle(postTitleResponse);
+                setUserName(userNameResponse);
+            } catch (error) {
+                console.error("Um erro inesperado ocorreu", error);
+            }
+        };
+
+        fetchData();
+    }, []);
     return (
         <Styled.Section>
             <Styled.UserNameBox>
                 <Styled.UserName>
-                    {authorName}
+                    {userName}
                 </Styled.UserName>
             </Styled.UserNameBox>
             <Styled.TitleBox>
