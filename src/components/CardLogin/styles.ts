@@ -6,6 +6,7 @@ export const Card = styled.div`
   border-radius: 6px;
   width: 22rem;
   margin: auto;
+  color: ${({theme}) => theme.colors.white.pure};
 `;
 
 export const CardHeader = styled.div`
@@ -34,6 +35,7 @@ export const CardBody = styled.div`
       height: 1.5rem;
       margin-top: .5rem;
       padding-left: .5rem;
+      color: ${({theme}) => theme.colors.white.pure};
 
       &:focus {
         outline: none;
@@ -50,6 +52,7 @@ export const CardBody = styled.div`
       border-radius: 10px;
       width: 30%;
       margin: 0 auto;
+      color: ${({theme}) => theme.colors.white.pure};
 
       &:hover {
         background-color: ${({theme}) => theme.colors.blue.midnight};

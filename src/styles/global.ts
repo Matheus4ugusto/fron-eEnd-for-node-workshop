@@ -7,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
     box-sizing: border-box;
     text-decoration: none;
-    color: ${({theme}) => theme.colors.white.pure}
   }
 
   body {
