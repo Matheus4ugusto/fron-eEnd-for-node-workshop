@@ -3,7 +3,7 @@ import * as Styled from "./header.style";
 import {FaNewspaper, FaRegUserCircle} from "react-icons/fa";
 import {IoIosMore} from "react-icons/io";
 import {BiHelpCircle} from "react-icons/bi";
-import {redirect, useRouter} from "next/navigation";
+import {useRouter} from "next/navigation";
 
 const Header: React.FC = () => {
 
