@@ -4,8 +4,6 @@ import {FaThumbsDown, FaThumbsUp} from "react-icons/fa";
 import {getPostText, getPostTitle} from "@/services/post.service";
 import {getUserName} from "@/services/user.service";
 
-//TODO tornar o nome de usuário um botão que redireciona ao perfil do usuário
-
 export interface PostBoxProps {
     authorName?: string,
     postText?: string,

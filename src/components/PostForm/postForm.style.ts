@@ -4,7 +4,7 @@ export const Form = styled.form`
   display: flex;
   background-color: ${({theme}) => theme.colors.black.pure};
   width: 80%;
-  height: 80%;
+  min-height: 80%;
   flex-direction: column;
   align-items: center;
   font-size: 1.5rem;
@@ -48,6 +48,16 @@ export const Form = styled.form`
       width: 90%;
     }
   }
+
+  #fileInput {
+    background-color: transparent;
+    font-size: 1rem;
+    @media (max-width: 425px) {
+      font-size: 0;
+    }
+
+  }
+
 `;
 
 export const Input = styled.input`
@@ -60,6 +70,28 @@ export const Input = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  &::file-selector-button {
+    color: ${({theme}) => theme.colors.white.pure};
+    background-color: ${({theme}) => theme.colors.blue.deep};
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    @media (max-width: 425px) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: 375px) {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: ${({theme}) => theme.colors.blue.midnight};
+    }
   }
 `;
 

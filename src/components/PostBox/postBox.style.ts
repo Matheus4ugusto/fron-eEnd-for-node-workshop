@@ -4,7 +4,7 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   width: 70%;
-  min-height: 20rem;
+  min-height: 3rem;
   background-color: ${({theme}) => theme.colors.black.pure};
   margin: 2rem auto;
   position: relative;
