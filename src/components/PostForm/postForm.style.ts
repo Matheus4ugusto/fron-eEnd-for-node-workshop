@@ -11,6 +11,20 @@ export const Form = styled.form`
   padding: 2rem;
   gap: .5rem;
 
+  button {
+    color: white;
+    font-size: 2rem;
+    background-color: ${({theme}) => theme.colors.blue.deep};
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all .5s;
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: ${({theme}) => theme.colors.blue.midnight};
+    }
+  }
+
   div {
     display: flex;
     flex-direction: column;
@@ -24,9 +38,15 @@ export const Form = styled.form`
   }
 
   #title {
-    width: 25%;
+    width: 40%;
     height: 2rem;
     border-radius: 10px;
+    @media (max-width: 1024px) {
+      width: 70%;
+    }
+    @media (max-width: 425px) {
+      width: 90%;
+    }
   }
 `;
 
@@ -52,7 +72,19 @@ export const TextArea = styled.textarea`
   margin-bottom: .5rem;
   font-size: 1.3rem;
   padding: .5rem;
-  height: 6rem;
+  height: 7rem;
+  @media (max-width: 1440px) {
+    height: 9rem;
+  }
+  @media (max-width: 1024px) {
+    height: 11rem;
+  }
+  @media (max-width: 768px) {
+    height: 15rem;
+  }
+  @media (max-width: 425px) {
+    height: 20rem;
+  }
 
   &:focus {
     outline: none;
