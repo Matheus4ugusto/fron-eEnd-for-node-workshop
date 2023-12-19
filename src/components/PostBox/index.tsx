@@ -1,36 +1,15 @@
 import * as Styled from "./postBox.style"
 import React, {useEffect, useState} from "react";
 import {FaThumbsDown, FaThumbsUp} from "react-icons/fa";
-import {getPostText, getPostTitle} from "@/services/post.service";
-import {getUserName} from "@/services/user.service";
 
 export interface PostBoxProps {
-    authorName?: string,
+    userName?: string,
     postText?: string,
     postTitle?: string,
 }
 
-const PostBox: React.FC<PostBoxProps> = () => {
-    const [postText, setPostText] = useState()
-    const [postTitle, setPostTitle] = useState()
-    const [userName, setUserName] = useState()
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const postTextResponse = await getPostText();
-                const postTitleResponse = await getPostTitle();
-                const userNameResponse = await getUserName();
+const PostBox: React.FC<PostBoxProps> = ({userName, postTitle, postText}) => {
 
-                setPostText(postTextResponse);
-                setPostTitle(postTitleResponse);
-                setUserName(userNameResponse);
-            } catch (error) {
-                console.error("Um erro inesperado ocorreu", error);
-            }
-        };
-
-        fetchData();
-    }, []);
     return (
         <Styled.Section>
             <Styled.UserNameBox>

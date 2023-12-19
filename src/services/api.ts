@@ -1,11 +1,10 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "/api",
+    baseURL: "/api/v1",
     withCredentials: true,
-    headers:{
+    headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY
     }
 })

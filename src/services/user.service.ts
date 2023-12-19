@@ -1,11 +1,32 @@
 import {api} from "@/services/api";
+import {AxiosResponse} from "axios";
 
-export const getUserName = async () => {
-    const {data} = await api.get("?max_length=5&start_with_lorem_ipsum=false")
-    return data.text
+interface LoginResponse {
+    type: string;
+    token: string;
 }
 
-export const getUserEmail = async () => {
-    const {data} = await api.get("?max_length=15&start_with_lorem_ipsum=false")
-    return data.text
+export interface User {
+    id: string;
+    name: string;
+    email: string;
+    gender: string;
+    birthDate: string;
+    password: string;
+}
+
+export interface CreateUser extends Omit<User, "id"> {
+    confirmPassword?: string;
+}
+
+export const login = (email: string, password: string)
+    : Promise<AxiosResponse<LoginResponse>> => {
+    return api.post("/login", {
+        email,
+        password,
+    })
+}
+
+export const createUser = (data: CreateUser): Promise<AxiosResponse<User>> => {
+    return api.post("/users", data)
 }

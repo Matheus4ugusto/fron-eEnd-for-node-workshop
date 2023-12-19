@@ -1,5 +1,7 @@
 import * as Styled from "./postForm.style";
 import React, {useState} from "react";
+import {getBase64} from "@/services/getBase64";
+import {createPost} from "@/services/post.service";
 
 // TODO atualizar responsividade do botão de publicar
 const PostForm: React.FC = () => {
@@ -7,34 +9,20 @@ const PostForm: React.FC = () => {
     const [content, setContent] = useState("");
     const [files, setFiles] = useState<FileList | null>(null);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (!files) return;
+        const fileStrings = [];
+        console.log(files)
+        for (let i in files) {
+            fileStrings.push(await getBase64(files.item(Number(i)) as File))
+        }
 
-        const fileArray = Array.from(files);
-        const promises = fileArray.map((file) => {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const base64String = e.target?.result as string;
-                    resolve({name: file.name, data: base64String});
-                };
-                reader.onerror = (error) => reject(error);
-                reader.readAsDataURL(file);
-            });
-        });
-
-        Promise.all(promises)
-            .then((base64Files) => {
-                const object = {
-                    title,
-                    content,
-                    files: base64Files,
-                };
-                const response = JSON.stringify(object);
-                console.log(response);
-                localStorage.setItem("post", response);
+        try {
+            const {data} = await createPost({
+                title, content, images: fileStrings,
             })
-            .catch((error) => console.error("Error reading files:", error));
+        } catch (e: any) {
+        }
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +32,7 @@ const PostForm: React.FC = () => {
 
     return (
         <>
-            <Styled.Form>
+            <Styled.Form onSubmit={(e) => e.preventDefault()}>
                 <div>
                     <label htmlFor="title">Qual o título do seu novo post?</label>
                     <Styled.Input
@@ -74,6 +62,7 @@ const PostForm: React.FC = () => {
                         name="data"
                         onChange={handleChange}
                         id="fileInput"
+                        multiple={true}
                     />
                 </div>
                 <button onClick={handleSubmit}>Publicar</button>
