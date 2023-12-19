@@ -1,5 +1,18 @@
-export default function Home(){
-    return(
-        <h1>Hello World!</h1>
+"use client"
+
+import PostBox from "@/components/PostBox";
+import NewPostButton from "@/components/NewPostButton";
+
+
+export default function Home() {
+
+    return (
+        <>
+            <PostBox/>
+            <PostBox/>
+            <PostBox/>
+            <NewPostButton/>
+        </>
+
     )
 }
